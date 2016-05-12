@@ -1,7 +1,14 @@
 from random import random
 
 
-KOOS = [('Koo!', 4), ('Koo! Koo!', 2), ("""( ovo) *spins furiously*
+KOOS = [
+    ('Koo!', 4),
+    ('Koo! Koo!', 2),
+    ('Koo?', 1),
+    ('Koo koo!', 1),
+    ('*soft hoot*', 0.5),
+    ('⁽ᵒᵛᵒ ⁾ *ᵉˣᶜᶦᵗᵉᵈ ʰᵒᵖˢ*', 0.5),
+    ("""( ovo) *spins furiously*
 (   ov)
 (     o)
 (       )
@@ -9,7 +16,7 @@ KOOS = [('Koo!', 4), ('Koo! Koo!', 2), ("""( ovo) *spins furiously*
 (vo   )
 (ovo )
 ( ovo)
-(   ov)""", 1)]
+(   ov)""", 0.5)]
 
 
 def koo():
