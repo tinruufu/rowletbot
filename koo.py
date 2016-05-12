@@ -2,12 +2,17 @@ from random import random
 
 
 KOOS = [
-    ('Koo!', 4),
-    ('Koo! Koo!', 2),
+    ('Koo!', 2),
+    ('Koo! Koo!', 1),
     ('Koo?', 1),
     ('Koo koo!', 1),
-    ('*soft hoot*', 0.5),
-    ('⁽ᵒᵛᵒ ⁾ *ᵉˣᶜᶦᵗᵉᵈ ʰᵒᵖˢ*', 0.5),
+    ('Koo~', 1),
+    ("*soft chitters*", 0.5),
+    ("*flaps and flutters*", 0.5),
+    ('*encouraging hoot*', 0.5),
+    ('⁽ᵒᵛᵒ ⁾ *excited hops*', 0.5),
+    ("*softly vibrates* ⁽ ' ᵛ '⁾", 0.5),
+    ('*smol hops*', 0.5),
     ("""( ovo) *spins furiously*
 (   ov)
 (     o)
