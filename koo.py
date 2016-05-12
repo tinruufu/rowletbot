@@ -13,7 +13,7 @@ KOOS = [
     ('*sleepy toot* (-v-)~', 0.5),
     ('⁽ᵒᵛᵒ ⁾ *excited hops*', 0.5),
     ("*softly vibrates* ⁽ ' ᵛ '⁾", 0.5),
-    ('*smol hops*', 0.5),
+    ('*smol boops*', 0.5),
     ("""( ovo) *spins furiously*
 (   ov)
 (     o)
