@@ -8,14 +8,9 @@ auth.set_access_token(token_key, token_secret)
 api = tweepy.API(auth)
 
 
-def pad(status):
-    zwsp = '\u200b'
-    return status[0] + zwsp + status[1:]
-
-
 def tweet():
-    status = koo()
     attempts = 0
+    status = koo()
 
     while True:
         attempts += 1
@@ -25,7 +20,7 @@ def tweet():
         except tweepy.TweepError as e:
             if e.api_code == 187 and attempts < 10:
                 # this is a dupe
-                status = pad(status)
+                status = koo()
             else:
                 raise
         else:
