@@ -1,5 +1,8 @@
+from os import unlink
+
 import tweepy
 
+from avatar import make_avatar
 from koo import koo
 from secrets import app_key, app_secret, token_key, token_secret
 
@@ -27,5 +30,12 @@ def tweet():
             break
 
 
+def set_avatar():
+    av_path = make_avatar()
+    api.update_profile_image(make_avatar())
+    unlink(av_path)
+
+
 if __name__ == '__main__':
     tweet()
+    set_avatar()
