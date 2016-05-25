@@ -4,8 +4,9 @@ from random import random
 
 def tweet_soon():
     sleep(60 * 60 * random() * 6)
-    from tweet import tweet
-    tweet()
+    import tweet
+    tweet.set_avatar()
+    tweet.tweet()
 
 
 if __name__ == '__main__':
