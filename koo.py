@@ -27,6 +27,8 @@ KOOS = [
     ('Koo?', 1),
     ('Koo koo!', 1),
     ('Koo~', 1),
+    ('Koo, koo!', 1),
+    ('Koo.', 1),
     ('Pip pip~', 0.5),
     ("*soft chitters*", 0.5),
     ("*flaps n' flutters* \\(ovo)/", 0.5),
@@ -37,6 +39,9 @@ KOOS = [
     ('⁽ᵒᵛᵒ ⁾ *excited hops*', 0.5),
     ("*softly vibrates* ⁽ ' ᵛ '⁾", 0.5),
     ('*smol boops*', 0.5),
+    ("*wing headpats* ( 'v')~", 0.5),
+    ('Koo? ( ‹: )', 0.5),
+    ('*reassuring koos*', 0.5),
     (SPIN, 0.5),
     (ROLL, 0.5),
 ]
