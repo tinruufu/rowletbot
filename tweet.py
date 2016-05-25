@@ -37,5 +37,5 @@ def set_avatar():
 
 
 if __name__ == '__main__':
-    tweet()
     set_avatar()
+    tweet()

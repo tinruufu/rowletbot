@@ -20,12 +20,14 @@ def random_square_within(source_size):
 
 
 def _make_avatar():
+    bg = '#fff'
     orig = Image.open(ROWLET_PATH)
     assert orig.width == orig.height
+    flattened = Image.alpha_composite(Image.new('RGBA', orig.size, bg), orig)
 
-    i = Image.new(orig.mode, (orig.width * 2, orig.height * 2))
+    i = Image.new('RGB', (orig.width * 2, orig.height * 2), bg)
     vertical_offset = int(orig.height/2 + random() * orig.height/2)
-    i.paste(orig, (int(orig.width/2), vertical_offset))
+    i.paste(flattened, (int(orig.width/2), vertical_offset))
 
     i = i.crop(random_square_within(i.width))
     i = i.rotate(random() * 360, Image.BICUBIC)
@@ -39,11 +41,11 @@ def _make_avatar():
 
 
 def make_avatar():
-    fd, avatar_path = mkstemp('.png')
+    fd, avatar_path = mkstemp('.jpg')
     img = _make_avatar()
 
     with os.fdopen(fd, 'wb') as fileobj:
-        img.save(fileobj, 'png')
+        img.save(fileobj, 'jpeg')
 
     return avatar_path
 
