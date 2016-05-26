@@ -9,7 +9,7 @@ ROWLET_PATH = os.path.join(os.path.dirname(__file__), 'rowlet.png')
 
 
 def random_square_within(source_size):
-    size = int((0.3 + random() * 0.7) * source_size)
+    size = int((0.2 + random() * 0.8) * source_size)
     neutral_padding = (source_size - size)/2
 
     return (
@@ -25,9 +25,9 @@ def _make_avatar():
     assert orig.width == orig.height
     flattened = Image.alpha_composite(Image.new('RGBA', orig.size, bg), orig)
 
-    i = Image.new('RGB', (orig.width * 2, orig.height * 2), bg)
-    vertical_offset = int(orig.height/2 + random() * orig.height/2)
-    i.paste(flattened, (int(orig.width/2), vertical_offset))
+    i = Image.new('RGB', (orig.width * 3, orig.height * 3), bg)
+    vertical_offset = int(orig.height + random() * orig.height/2)
+    i.paste(flattened, (int(orig.width), vertical_offset))
 
     i = i.crop(random_square_within(i.width))
     i = i.rotate(random() * 360, Image.BICUBIC)
