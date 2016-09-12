@@ -22,6 +22,7 @@ ROLL = """( ' ᵛ ' ) *ᵇᵒʳᵇ ʳᵒˡˡ*
         ( ' ᵛ ' )"""
 
 KOOS = [
+    # talk
     ('Koo!', 2),
     ('Koo! Koo!', 1),
     ('Koo?', 1),
@@ -30,20 +31,35 @@ KOOS = [
     ('Koo, koo!', 1),
     ('Koo.', 1),
     ('Pip pip~', 0.5),
+
+    # act
     ("*soft chitters*", 0.5),
     ("*flaps n' flutters* \\(ovo)/", 0.5),
-    ('*encouraging hoot*', 0.5),
+    ('*hophop*', 0.5),
+    ('*lil spin*', 0.5),
+    ('*peckpeckpeck*', 0.5),
+    ('*smol boops*', 0.5),
+    ('*hop*', 0.5),
+    ('*preens*', 0.5),
+
+    # emote
     ("*warm wiggle* ~'v'~", 0.5),
     ("*ruffles floof* \\(('v'))/", 0.5),
     ('*sleepy toot* (-v-)~', 0.5),
     ('⁽ᵒᵛᵒ ⁾ *excited hops*', 0.5),
     ("*softly vibrates* ⁽ ' ᵛ '⁾", 0.5),
-    ('*smol boops*', 0.5),
     ("*wing headpats* ( 'v')~", 0.5),
     ('Koo? ( ‹: )', 0.5),
-    ('*reassuring koos*', 0.5),
     (SPIN, 0.5),
     (ROLL, 0.5),
+
+    # encourage
+    ('*encouraging hoot*', 0.5),
+    ('*reassuring koos*', 0.5),
+    ('*knows u can do it*', 0.5),
+    ('*believes in u 100%*', 0.5),
+    ('*looks at u*', 0.5),
+    ('*will protect u*', 0.5),
 ]
 
 
