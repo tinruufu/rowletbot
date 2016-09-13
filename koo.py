@@ -1,6 +1,14 @@
 from random import random
 
 
+BERRIES = """
+Cheri Chesto Pecha Rawst Aspear Leppa Oran Persim Lum Sitrus Figy Wiki Mago
+Aguav Iapapa Razz Bluk Nanab Wepear Pinap Pomeg Kelpsy Qualot Hondew Grepa
+Tamato Cornn Magost Rabuta Nomel Spelon Pamtre Watmel Babiri Chilan Liechi
+Ganlon Salac Petaya Apicot Lansat Starf Enigma Micle Custap Jaboca Rowap Roseli
+Kee Maranga
+""".split()  # thank u bulbapedia
+
 SPIN = """( ovo) *spins furiously*
 (   ov)
 (     o)
@@ -41,6 +49,7 @@ KOOS = [
     ('*smol boops*', 0.5),
     ('*hop*', 0.5),
     ('*preens*', 0.5),
+    ('*lil jig*', 0.5),
 
     # emote
     ("*warm wiggle* ~'v'~", 0.5),
@@ -49,6 +58,7 @@ KOOS = [
     ('⁽ᵒᵛᵒ ⁾ *excited hops*', 0.5),
     ("*softly vibrates* ⁽ ' ᵛ '⁾", 0.5),
     ("*wing headpats* ( 'v')~", 0.5),
+    ('*looks at u* ( ovo )', 0.5),
     ('Koo? ( ‹: )', 0.5),
     (SPIN, 0.5),
     (ROLL, 0.5),
@@ -58,8 +68,11 @@ KOOS = [
     ('*reassuring koos*', 0.5),
     ('*knows u can do it*', 0.5),
     ('*believes in u 100%*', 0.5),
-    ('*looks at u*', 0.5),
     ('*will protect u*', 0.5),
+    ('*brings u a poké puff*', 0.2),
+] + [
+    ('*brings u a {} berry*'.format(b.lower()), 1/len(BERRIES))
+    for b in BERRIES
 ]
 
 
