@@ -1,5 +1,9 @@
 from random import random
 
+from inflect import engine
+
+inflect = engine()
+
 
 BERRIES = """
 Cheri Chesto Pecha Rawst Aspear Leppa Oran Persim Lum Sitrus Figy Wiki Mago
@@ -71,7 +75,7 @@ KOOS = [
     ('*will protect u*', 0.5),
     ('*brings u a poké puff*', 0.2),
 ] + [
-    ('*brings u a {} berry*'.format(b.lower()), 1/len(BERRIES))
+    ('*brings u {} berry*'.format(inflect.a(b.lower())), 1/len(BERRIES))
     for b in BERRIES
 ]
 
