@@ -54,6 +54,10 @@ KOOS = [
     ('*hop*', 0.5),
     ('*preens*', 0.5),
     ('*lil jig*', 0.5),
+    ('*flapflap*', 0.5),
+    ('*soars gracefully*', 0.5),
+    ('*gently nibbles ur finger*', 0.5),
+    ('*does owl things*', 0.5),
 
     # emote
     ("*warm wiggle* ~'v'~", 0.5),
