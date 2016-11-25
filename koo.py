@@ -56,16 +56,20 @@ KOOS = [
     ('*lil jig*', 0.5),
     ('*flapflap*', 0.5),
     ('*soars gracefully*', 0.5),
+    ("*swoops n' flaps*", 0.5),
     ('*gently nibbles ur finger*', 0.5),
     ('*does owl things*', 0.5),
     ('*hugs ur leg*', 0.5),
-    ('*thinks about popplio*\n\n*smiles*', 0.3),
+    ('*thinks about popplio*\n\n*smiles*', 0.5),
     ("*twirls n' whistles*", 0.5),
+    ('*flaps onto ur head*\n\nKoo!', 0.5),
+    ('*is ready for adventure*', 0.5),
 
     # emote
     ("*warm wiggle* ~'v'~", 0.5),
     ("*ruffles floof* \\(('v'))/", 0.5),
     ('*sleepy toot* (-v-)~', 0.5),
+    ("*tiny toot*", 0.5),
     ('⁽ᵒᵛᵒ ⁾ *excited hops*', 0.5),
     ("*softly vibrates* ⁽ ' ᵛ '⁾", 0.5),
     ("*wing headpats* ( 'v')~", 0.5),
@@ -80,6 +84,7 @@ KOOS = [
     ('*knows u can do it*', 0.5),
     ('*believes in u 100%*', 0.5),
     ('*will protect u*', 0.5),
+    ('*is here for u*', 0.5),
     ('*brings u a poké puff*', 0.2),
 ] + [
     ('*brings u {} berry*'.format(inflect.a(b.lower())), 1/len(BERRIES))
