@@ -65,6 +65,21 @@ KOOS = [
     ('*flaps onto ur head*\n\nKoo!', 0.5),
     ('*is ready for adventure*', 0.5),
 
+    # refresh
+    ("*hugs u so u won't worry*", 0.5),
+    ("*toughs it out so u won't feel sad*", 0.5),
+    ("*does a lil flap in time with your shout", 0.5),
+    ('*is in a bit of a pinch*\n\n*looks like it might cry*', 0.1),
+    ('*is thrilled to bits*', 0.5),
+    ('*looks at u with trusting eyes*', 0.5),
+    ('*looks at u with intense and determined eyes*', 0.5),
+    ('*is bursting with enthusiasm*', 0.5),
+    ('*seems curious about your fashion*', 0.5),
+    ('*sees u*\n\n*feels more secure*', 0.5),
+    ('*wants to be petted*', 0.5),
+    ('*is thinking about poké beans*', 0.5),
+    ('*turns towards u*\n\n*nods in understanding*', 0.5),
+
     # emote
     ("*warm wiggle* ~'v'~", 0.5),
     ("*ruffles floof* \\(('v'))/", 0.5),
