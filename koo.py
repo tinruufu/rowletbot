@@ -68,7 +68,7 @@ KOOS = [
     # refresh
     ("*hugs u so u won't worry*", 0.5),
     ("*toughs it out so u won't feel sad*", 0.5),
-    ("*does a lil flap in time with your shout", 0.5),
+    ("*does a lil flap in time with your shout*", 0.5),
     ('*is in a bit of a pinch*\n\n*might cry*', 0.1),
     ('*is thrilled to bits*', 0.5),
     ('*looks at u with trusting eyes*', 0.5),
