@@ -42,6 +42,8 @@ KOOS = [
     ('Koo~', 1),
     ('Koo, koo!', 1),
     ('Koo.', 1),
+    ('Koo-koo!', 1),
+    ('Kooo!', 1),
     ('Pip pip~', 0.5),
 
     # act
@@ -64,6 +66,7 @@ KOOS = [
     ("*twirls n' whistles*", 0.5),
     ('*flaps onto ur head*\n\nKoo!', 0.5),
     ('*is ready for adventure*', 0.5),
+    ('>-<', 0.5),
 
     # refresh
     ("*hugs u so u won't worry*", 0.5),
