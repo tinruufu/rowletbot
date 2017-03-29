@@ -1,5 +1,6 @@
 from os import unlink
 
+from mastodon import Mastodon
 import tweepy
 
 from avatar import make_avatar
@@ -10,10 +11,15 @@ auth = tweepy.OAuthHandler(app_key, app_secret)
 auth.set_access_token(token_key, token_secret)
 api = tweepy.API(auth)
 
+mastodon = Mastodon(
+    client_id='mastodon_app_creds.txt',
+    access_token='mastodon_creds.txt',
+)
+
 
 def tweet():
-    attempts = 0
     status = koo()
+    attempts = 0
 
     while True:
         attempts += 1
@@ -27,7 +33,11 @@ def tweet():
             else:
                 raise
         else:
-            break
+            return status
+
+
+def toot(status):
+    mastodon.toot(status)
 
 
 def set_avatar():
@@ -37,4 +47,6 @@ def set_avatar():
 
 
 if __name__ == '__main__':
-    tweet()
+    status = tweet()
+    if status is not None:
+        toot(status)

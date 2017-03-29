@@ -1,3 +1,4 @@
 tweepy==3.5.0
 pillow==3.2.0
 inflect==0.2.5
+mastodon.py==1.0.5
