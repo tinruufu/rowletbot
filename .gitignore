@@ -1,3 +1,6 @@
 secrets.py
 mastodon_app_creds.txt
 mastodon_creds.txt
+raw_mastodon_creds.py
+screenshot.png
+ghostdriver.log

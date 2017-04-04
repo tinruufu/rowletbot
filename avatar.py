@@ -1,4 +1,5 @@
 from tempfile import mkstemp
+from subprocess import check_call
 import os
 from random import random
 
@@ -20,12 +21,12 @@ def random_square_within(source_size):
 
 
 def _make_avatar():
-    bg = '#fff'
+    bg = (255, 255, 255, 0)
     orig = Image.open(ROWLET_PATH)
     assert orig.width == orig.height
     flattened = Image.alpha_composite(Image.new('RGBA', orig.size, bg), orig)
 
-    i = Image.new('RGB', (orig.width * 3, orig.height * 3), bg)
+    i = Image.new('RGBA', (orig.width * 3, orig.height * 3), bg)
     vertical_offset = int(orig.height + random() * orig.height/2)
     i.paste(flattened, (int(orig.width), vertical_offset))
 
@@ -37,15 +38,19 @@ def _make_avatar():
     i = i.crop((rotation_padding, rotation_padding,
                 i.width-rotation_padding, i.width-rotation_padding))
 
+    i.thumbnail((500, 500), Image.ANTIALIAS)
+
     return i
 
 
 def make_avatar():
-    fd, avatar_path = mkstemp('.jpg')
+    fd, avatar_path = mkstemp('.png')
     img = _make_avatar()
 
     with os.fdopen(fd, 'wb') as fileobj:
-        img.save(fileobj, 'jpeg')
+        img.save(fileobj, 'png')
+
+    check_call(['optipng', '-quiet', avatar_path])
 
     return avatar_path
 

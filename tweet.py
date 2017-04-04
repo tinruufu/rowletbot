@@ -1,4 +1,5 @@
 from os import unlink, path
+from time import sleep
 
 from mastodon import Mastodon
 import tweepy
@@ -42,13 +43,42 @@ def toot(status):
     mastodon.toot(status)
 
 
+def set_mastodon_avatar(av_path):
+    from raw_mastodon_creds import login, password
+    from selenium.webdriver import PhantomJS
+
+    try:
+        browser = PhantomJS(service_args=['--webdriver-loglevel=DEBUG'])
+        browser.set_window_size(1280, 720)
+        browser.implicitly_wait(10)
+        browser.get(mastodon.api_base_url + '/auth/sign_in')
+        browser.find_element_by_id('user_email').send_keys(login)
+        browser.find_element_by_id('user_password').send_keys(password)
+        browser.find_element_by_css_selector('button[type="submit"]').click()
+        sleep(5)
+        browser.get(mastodon.api_base_url + '/settings/profile')
+        browser.find_element_by_id('account_avatar').send_keys(av_path)
+        browser.find_element_by_css_selector('button[type="submit"]').click()
+        browser.find_element_by_css_selector('body')
+        sleep(2)
+    except:
+        browser.save_screenshot(path.join(HERE, 'screenshot.png'))
+        raise
+    finally:
+        browser.quit()
+
+
 def set_avatar():
     av_path = make_avatar()
-    api.update_profile_image(make_avatar())
-    unlink(av_path)
+    try:
+        api.update_profile_image(make_avatar())
+        set_mastodon_avatar(av_path)
+    finally:
+        unlink(av_path)
 
 
 if __name__ == '__main__':
+    set_avatar()
     status = tweet()
     if status is not None:
         toot(status)
