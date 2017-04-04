@@ -8,7 +8,7 @@ def tweet_soon():
     tweet.set_avatar()
     status = tweet.tweet()
     if status is not None:
-        tweet.toot()
+        tweet.toot(status)
 
 
 if __name__ == '__main__':

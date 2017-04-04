@@ -1,4 +1,4 @@
-from os import unlink
+from os import unlink, path
 
 from mastodon import Mastodon
 import tweepy
@@ -7,13 +7,15 @@ from avatar import make_avatar
 from koo import koo
 from secrets import app_key, app_secret, token_key, token_secret
 
+HERE = path.dirname(__file__)
+
 auth = tweepy.OAuthHandler(app_key, app_secret)
 auth.set_access_token(token_key, token_secret)
 api = tweepy.API(auth)
 
 mastodon = Mastodon(
-    client_id='mastodon_app_creds.txt',
-    access_token='mastodon_creds.txt',
+    client_id=path.join(HERE, 'mastodon_app_creds.txt'),
+    access_token=path.join(HERE, 'mastodon_creds.txt'),
 )
 
 
