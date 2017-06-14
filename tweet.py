@@ -1,5 +1,5 @@
+from base64 import b64encode
 from os import unlink, path
-from time import sleep
 
 from mastodon import Mastodon
 import tweepy
@@ -44,34 +44,18 @@ def toot(status):
 
 
 def set_mastodon_avatar(av_path):
-    from raw_mastodon_creds import login, password
-    from selenium.webdriver import PhantomJS
-
-    try:
-        browser = PhantomJS(service_args=['--webdriver-loglevel=DEBUG'])
-        browser.set_window_size(1280, 720)
-        browser.implicitly_wait(10)
-        browser.get(mastodon.api_base_url + '/auth/sign_in')
-        browser.find_element_by_id('user_email').send_keys(login)
-        browser.find_element_by_id('user_password').send_keys(password)
-        browser.find_element_by_css_selector('button[type="submit"]').click()
-        sleep(5)
-        browser.get(mastodon.api_base_url + '/settings/profile')
-        browser.find_element_by_id('account_avatar').send_keys(av_path)
-        browser.find_element_by_css_selector('button[type="submit"]').click()
-        browser.find_element_by_css_selector('body')
-        sleep(2)
-    except:
-        browser.save_screenshot(path.join(HERE, 'screenshot.png'))
-        raise
-    finally:
-        browser.quit()
+    with open(av_path, 'rb') as av:
+        mastodon.account_update_credentials(
+            avatar='data:image/png;base64,{}'.format(
+                b64encode(av.read()).decode('utf-8')
+            )
+        )
 
 
 def set_avatar():
     av_path = make_avatar()
     try:
-        api.update_profile_image(make_avatar())
+        api.update_profile_image(av_path)
         set_mastodon_avatar(av_path)
     finally:
         unlink(av_path)
