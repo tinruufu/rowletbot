@@ -61,6 +61,7 @@ KOOS = [
     ("*swoops n' flaps*", 0.5),
     ('*gently nibbles ur finger*', 0.5),
     ('*does owl things*', 0.5),
+    ('*does toots at u*', 0.5),
     ('*hugs ur leg*', 0.5),
     ('*thinks about popplio*\n\n*smiles*', 0.5),
     ("*twirls n' whistles*", 0.5),
