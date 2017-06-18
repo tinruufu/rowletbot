@@ -1,7 +1,9 @@
-from base64 import b64encode
 from os import unlink, path
+import random
+import string
 
 from mastodon import Mastodon
+import mimetypes
 import tweepy
 
 from avatar import make_avatar
@@ -14,7 +16,35 @@ auth = tweepy.OAuthHandler(app_key, app_secret)
 auth.set_access_token(token_key, token_secret)
 api = tweepy.API(auth)
 
-mastodon = Mastodon(
+
+class Borbstadon(Mastodon):
+    """
+    Mastodon, but with avatar uploading that doesn't use base64.
+    """
+
+    def set_avatar(self, media_file, mime_type=None):
+        if mime_type is None and path.isfile(media_file):
+            mime_type = mimetypes.guess_type(media_file)[0]
+            media_file = open(media_file, 'rb')
+
+        if mime_type is None:
+            raise RuntimeError('Could not determine mime type')
+
+        random_suffix = ''.join(
+            random.choice(string.ascii_uppercase + string.digits)
+            for _ in range(10)
+        )
+
+        return self._Mastodon__api_request(
+            'PATCH', '/api/v1/accounts/update_credentials', files={'avatar': (
+                'borb_{}{}'.format(random_suffix,
+                                   mimetypes.guess_extension(mime_type)),
+                media_file, mime_type,
+            )},
+        )
+
+
+mastodon = Borbstadon(
     client_id=path.join(HERE, 'mastodon_app_creds.txt'),
     access_token=path.join(HERE, 'mastodon_creds.txt'),
 )
@@ -43,20 +73,11 @@ def toot(status):
     mastodon.toot(status)
 
 
-def set_mastodon_avatar(av_path):
-    with open(av_path, 'rb') as av:
-        mastodon.account_update_credentials(
-            avatar='data:image/png;base64,{}'.format(
-                b64encode(av.read()).decode('utf-8')
-            )
-        )
-
-
 def set_avatar():
     av_path = make_avatar()
     try:
         api.update_profile_image(av_path)
-        set_mastodon_avatar(av_path)
+        mastodon.set_avatar(av_path)
     finally:
         unlink(av_path)
 
