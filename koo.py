@@ -78,6 +78,7 @@ KOOS = [
     ('*falls from the window ledge above yours*', 0.1),
     ('*flapflap*', 0.5),
     ('*flaps onto ur head*\n\nKoo!', 0.5),
+    ('*flaps onto ur shoulder*', 0.5),
     ('*gently nibbles ur finger*', 0.5),
     ('*hop*', 0.5),
     ('*hophop*', 0.5),
@@ -112,6 +113,7 @@ KOOS = [
     ('*wants to be petted*', 0.5),
 
     # emote
+    ('*does many happy flaps*', 0.5),
     ("*ruffles floof* \\(('v'))/", 0.5),
     ("*softly vibrates* ⁽ ' ᵛ '⁾", 0.5),
     ("*tiny toot*", 0.5),
