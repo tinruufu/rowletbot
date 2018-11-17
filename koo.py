@@ -127,18 +127,6 @@ KOOS = [
     (SPIN, 0.5),
     (ROLL, 0.5),
 
-    # encourage
-    ('*believes in u 100%*', 0.5),
-    ('*encouraging hoot*', 0.5),
-    ('*is here for u*', 0.5),
-    ('*knows u can do it*', 0.5),
-    ('*reassuring koos*', 0.5),
-    ('*will protect u*', 0.5),
-    ('*brings u a poké puff*', 0.2),
-] + [
-    ('*brings u {} berry*'.format(inflect.a(b.lower())), 1/len(BERRIES))
-    for b in BERRIES
-
     # let's go
     ('*blushes happily for some reason*', 0.5),
     ('*brims with hopping spirit*', 0.5),
@@ -179,6 +167,18 @@ KOOS = [
     ('*tries to be quiet*', 0.5),
     ('*wants to play*', 0.5),
     ('*wants to venture farther ahead as soon as possible*', 0.5),
+
+    # encourage
+    ('*believes in u 100%*', 0.5),
+    ('*encouraging hoot*', 0.5),
+    ('*is here for u*', 0.5),
+    ('*knows u can do it*', 0.5),
+    ('*reassuring koos*', 0.5),
+    ('*will protect u*', 0.5),
+    ('*brings u a poké puff*', 0.2),
+] + [
+    ('*brings u {} berry*'.format(inflect.a(b.lower())), 1/len(BERRIES))
+    for b in BERRIES
 ]
 
 
