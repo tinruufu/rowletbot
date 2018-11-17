@@ -138,6 +138,47 @@ KOOS = [
 ] + [
     ('*brings u {} berry*'.format(inflect.a(b.lower())), 1/len(BERRIES))
     for b in BERRIES
+
+    # let's go
+    ('*blushes happily for some reason*', 0.5),
+    ('*brims with hopping spirit*', 0.5),
+    ('*calls out to u*', 0.5),
+    ('*checks out the buildings*', 0.5),
+    ('*enjoys the warmth of the sun*', 0.5),
+    ('*feels calm and relaxed*', 0.5),
+    ('*feels totally carefree*', 0.5),
+    ('*found something in the plants!*', 0.1),
+    ('*greets u energetically*', 0.5),
+    ('*has a lot of energy*', 0.5),
+    ('*has energy to spare*', 0.5),
+    ('*hurriedly looks all around*', 0.5),
+    ('*is alert, looks all around*', 0.5),
+    ('*is bursting with energy*', 0.5),
+    ('*is energetically following you*', 0.5),
+    ('*is happy to toot at u*', 0.5),
+    ('*is having a lot of fun!*', 0.5),
+    ('*is having fun following u from behind*', 0.5),
+    ('*is interested in that new game console*', 0.5),
+    ('*is interested in the smell of the dirt*', 0.5),
+    ('*looks around restlessly*', 0.5),
+    ('*looks happy*', 0.5),
+    ('*looks ur way, startled*', 0.5),
+    ('*nimbly hops in the air*', 0.5),
+    ('*pokes and plays with the ground*', 0.5),
+    ('*pokes at ur legs*', 0.5),
+    ('*pokes u*', 0.5),
+    ('*rolls a stone around*', 0.5),
+    ('*seems to be having fun*', 0.5),
+    ('*sleepily nods off*', 0.5),
+    ('*sniffs around the room*', 0.5),
+    ('*sniffs at the ground*', 0.5),
+    ('*still has an ample amount of energy*', 0.5),
+    ('*stretches out and relaxes*', 0.5),
+    ('*surveys the vicinity*', 0.5),
+    ('*takes it easy*', 0.5),
+    ('*tries to be quiet*', 0.5),
+    ('*wants to play*', 0.5),
+    ('*wants to venture farther ahead as soon as possible*', 0.5),
 ]
 
 
