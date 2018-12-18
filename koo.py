@@ -83,7 +83,7 @@ KOOS = [
     ('*hop*', 0.5),
     ('*hophop*', 0.5),
     ('*hugs ur leg*', 0.5),
-    ('*is cheerinng for you!*', 0.5),
+    ('*is cheering for you!*', 0.5),
     ('*is ready for adventure*', 0.5),
     ('*lil jig*', 0.5),
     ('*lil spin*', 0.5),
