@@ -223,6 +223,16 @@ KOOS = [
 ]
 
 
+def _find_dupe_koos():
+    seen_koos = set()
+
+    for k, p in KOOS:
+        if k in seen_koos:
+            raise ValueError('{} is in KOOS more than once'.format(k))
+        seen_koos.add(k)
+
+
+
 def koo():
     target = random() * sum((k[1] for k in KOOS))
     total = 0
@@ -230,6 +240,9 @@ def koo():
         total += weight
         if total >= target:
             return koo
+
+
+_find_dupe_koos()
 
 
 if __name__ == '__main__':
