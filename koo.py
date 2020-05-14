@@ -219,6 +219,9 @@ KOOS = [
     ('*wants to play*', 0.5),
     ('*wants to venture farther ahead as soon as possible*', 0.5),
 
+    # anime
+    ('*coughs up an everstone*', 0.5),
+
     # swsh
     ('*dozes off due to is sleepy*', 0.5),
     ('*enjoys camping*', 0.5),
