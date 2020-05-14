@@ -272,11 +272,11 @@ KOOS = [
     ('*wants to learn {}*'.format(move.lower()), 1/len(MOVES))
     for move in MOVES
 ] + list(chain(*(monify(fmt, chance, poss) for fmt, chance, poss in [
-    ("*doesn't understand {}*", 0.5, False),
-    ("*doesn't understand {} very well*", 0.5, False),
-    ("*is a little scared of {}*", 0.5, False),
+    ("*doesn't understand {}*", 0.25, False),
+    ("*doesn't understand {} very well*", 0.25, False),
+    ("*is a little scared of {}*", 0.25, False),
     ("*is interested in {} scent*", 0.5, True),
-    ("*seems afraid of {}*", 0.5, False),
+    ("*seems afraid of {}*", 0.25, False),
     ("*wants to play with {}*", 1, False),
 ])))
 
