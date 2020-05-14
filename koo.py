@@ -1,17 +1,12 @@
+from itertools import chain
 from random import random
 
 from inflect import engine
 
+from constants import BERRIES, MONS, MOVES
+
 inflect = engine()
 
-
-BERRIES = """
-Cheri Chesto Pecha Rawst Aspear Leppa Oran Persim Lum Sitrus Figy Wiki Mago
-Aguav Iapapa Razz Bluk Nanab Wepear Pinap Pomeg Kelpsy Qualot Hondew Grepa
-Tamato Cornn Magost Rabuta Nomel Spelon Pamtre Watmel Babiri Chilan Liechi
-Ganlon Salac Petaya Apicot Lansat Starf Enigma Micle Custap Jaboca Rowap Roseli
-Kee Maranga
-""".split()  # thank u bulbapedia
 
 SPIN = """( ovo) *spins furiously*
 (   ov)
@@ -49,7 +44,22 @@ ROLL = """( ' ᵛ ' ) *ᵇᵒʳᵇ ʳᵒˡˡ*
          (    ‹:)
           (   ̩ ‸ ̩)
            (:›    )
-           \( ' ᵛ ' )/"""
+           \\( ' ᵛ ' )/"""
+
+
+def possessify(noun):
+    return ("{}'" if noun[-1] == 's' else "{}'s").format(noun)
+
+
+def monify(fmt, probability, possessive=False):
+    return [(
+        fmt.format(
+            possessify(mon.lower())
+            if possessive else mon.lower()
+        ),
+        probability/len(MONS)
+    ) for mon in MONS]
+
 
 KOOS = [
     # talk
@@ -209,6 +219,44 @@ KOOS = [
     ('*wants to play*', 0.5),
     ('*wants to venture farther ahead as soon as possible*', 0.5),
 
+    # swsh
+    ('*dozes off due to is sleepy*', 0.5),
+    ('*enjoys camping*', 0.5),
+    ('*enjoys the calm air*', 0.5),
+    ('*expects u to come up with a great strategy!*', 0.5),
+    ('*hides on drakloak\'s head*', 0.1),
+    ('*is a bit worried about being able to do well*', 0.5),
+    ('*is full and satisfied!*', 0.5),
+    ('*is happy to be with u*', 0.5),
+    ('*is having fun*', 0.5),
+    ('*is in a good mood*', 0.5),
+    ('*is reassured by your familiar scent*', 0.5),
+    ('*is refreshed by the rain!*', 0.5),
+    ('*is still full of energy!*', 0.5),
+    ('*is strong AND cute*', 0.5),
+    ('*is tired and hungry*', 0.5),
+    ('*is training to become huge*', 0.5),
+    ('*likes u a lot*', 0.5),
+    ('*likes u*', 0.5),
+    ('*likes waiting in lines*', 0.5),
+    ('*looks very hungry*', 0.5),
+    ('*really wants some time to play with u*', 0.5),
+    ('*remembers first meeting u*', 0.5),
+    ('*seems a bit bored*', 0.5),
+    ('*seems a bit nervous*', 0.5),
+    ('*seems curious about you*', 0.5),
+    ('*seems worried about surroundings*', 0.5),
+    ('*thinks about camping*', 0.5),
+    ('*wants more attention*', 0.5),
+    ('*wants to be here for u forever*', 0.5),
+    ('*wants to eat yummy food*', 0.5),
+    ('*wants to go somewhere far away*', 0.5),
+    ('*wants to play a lot with u*', 0.5),
+    ('*wants to play more*', 0.5),
+    ('*wants to play with a poké toy*', 0.5),
+    ('*wants to play with other pokémon*', 0.5),
+    ('*wants to visit lots of different places*', 0.5),
+
     # encourage
     ('*believes in u 100%*', 0.5),
     ('*encouraging hoot*', 0.5),
@@ -220,7 +268,17 @@ KOOS = [
 ] + [
     ('*brings u {} berry*'.format(inflect.a(b.lower())), 1/len(BERRIES))
     for b in BERRIES
-]
+] + [
+    ('*wants to learn {}*'.format(move.lower()), 1/len(MOVES))
+    for move in MOVES
+] + list(chain(*(monify(fmt, chance, poss) for fmt, chance, poss in [
+    ("*doesn't understand {}*", 0.5, False),
+    ("*doesn't understand {} very well*", 0.5, False),
+    ("*is a little scared of {}*", 0.5, False),
+    ("*is interested in {} scent*", 0.5, True),
+    ("*seems afraid of {}*", 0.5, False),
+    ("*wants to play with {}*", 1, False),
+])))
 
 
 def _find_dupe_koos():
@@ -230,7 +288,6 @@ def _find_dupe_koos():
         if k in seen_koos:
             raise ValueError('{} is in KOOS more than once'.format(k))
         seen_koos.add(k)
-
 
 
 def koo():
