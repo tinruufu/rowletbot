@@ -272,7 +272,7 @@ KOOS = [
     ('*brings u {} berry*'.format(inflect.a(b.lower())), 1/len(BERRIES))
     for b in BERRIES
 ] + [
-    ('*wants to learn {}*'.format(move.lower()), 1/len(MOVES))
+    ('*wants to learn {}*'.format(move.lower()), 2/len(MOVES))
     for move in MOVES
 ] + list(chain(*(monify(fmt, chance, poss) for fmt, chance, poss in [
     ("*doesn't understand {}*", 0.25, False),
