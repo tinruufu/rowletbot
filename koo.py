@@ -46,6 +46,14 @@ ROLL = """( ' ᵛ ' ) *ᵇᵒʳᵇ ʳᵒˡˡ*
            (:›    )
            \\( ' ᵛ ' )/"""
 
+ACAB = """*hop*
+
+*hophophop*
+
+*hop*
+
+*hophop*"""
+
 
 def possessify(noun):
     return ("{}'" if noun[-1] == 's' else "{}'s").format(noun)
@@ -136,6 +144,7 @@ KOOS = [
     ('⁽ᵒᵛᵒ ⁾ *excited hops*', 0.5),
     (SPIN, 0.5),
     (ROLL, 0.5),
+    (ACAB, 0.5),
 
     # let's go
     ('*battles sleep*', 0.5),
