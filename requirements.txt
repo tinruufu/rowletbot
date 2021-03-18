@@ -1,5 +1,5 @@
 tweepy==3.5.0
-pillow==7.1.2
+pillow==8.1.1
 inflect==0.2.5
 mastodon.py==1.0.7
 selenium
