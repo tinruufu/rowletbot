@@ -1,4 +1,4 @@
-tweepy==3.5.0
+tweepy==3.7.0
 pillow==7.1.2
 inflect==0.2.5
 mastodon.py==1.0.7
