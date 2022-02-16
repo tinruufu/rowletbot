@@ -46,6 +46,14 @@ ROLL = """( ' ᵛ ' ) *ᵇᵒʳᵇ ʳᵒˡˡ*
            (:›    )
            \\( ' ᵛ ' )/"""
 
+ACAB = """*hop*
+
+*hophophop*
+
+*hop*
+
+*hophop*"""
+
 
 def possessify(noun):
     return ("{}'" if noun[-1] == 's' else "{}'s").format(noun)
@@ -137,6 +145,7 @@ KOOS = [
     ('⁽ᵒᵛᵒ ⁾ *excited hops*', 0.5),
     (SPIN, 0.5),
     (ROLL, 0.5),
+    (ACAB, 0.5),
 
     # let's go
     ('*battles sleep*', 0.5),
@@ -275,7 +284,7 @@ KOOS = [
     ('*brings u {} berry*'.format(inflect.a(b.lower())), 1/len(BERRIES))
     for b in BERRIES
 ] + [
-    ('*wants to learn {}*'.format(move.lower()), 1/len(MOVES))
+    ('*wants to learn {}*'.format(move.lower()), 2/len(MOVES))
     for move in MOVES
 ] + list(chain(*(monify(fmt, chance, poss) for fmt, chance, poss in [
     ("*doesn't understand {}*", 0.25, False),
