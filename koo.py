@@ -74,6 +74,7 @@ KOOS = [
     ('Kooo!', 1),
     ('Kooo; koo? Kooo!', 1),
     ('Koo~', 1),
+    ('Krooo!', 1),
     ('Pip pip~', 0.5),
 
     # act
@@ -154,6 +155,7 @@ KOOS = [
     ('*gazes up aimlessly at the sky*', 0.5),
     ('*gives a strong, reassuring nod*', 0.5),
     ('*gives u a knowing nod*', 0.5),
+    ('*got the idea for a new move!*', 0.5),
     ('*greets u energetically*', 0.5),
     ('*happily plays with u*', 0.5),
     ('*has a curiously triumphant expression*', 0.5),
@@ -177,6 +179,7 @@ KOOS = [
     ('*is really pleased*', 0.5),
     ('*is surprised at how bright the sun is*', 0.5),
     ('*listens intently*', 0.5),
+    ('*looks around*', 0.5),
     ('*looks around restlessly*', 0.5),
     ('*looks curiously at a rowlet reflection in ur eyes*', 0.5),
     ('*looks happy*', 0.5),
